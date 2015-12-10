@@ -1,7 +1,19 @@
+default="http://cryptowat.ch"
+
 if [ $# -eq 0 ]; then
-  /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --app=http://cryptowat.ch
-elif [ $1 -eq 1 ]; then
-  /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --app=http://netflix.com
+  target=$default
 else
-  /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --app=$1
+  case "$1" in
+    flix)
+      target="http://netflix.com"
+      ;;
+    cbex)
+      target="https://exchange.coinbase.com/trade/BTC-USD"
+      ;;
+    *)
+      target=$1
+      ;;
+  esac
 fi
+
+/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --app=$target
