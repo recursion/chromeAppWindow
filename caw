@@ -1,5 +1,8 @@
 default="http://cryptowat.ch"
 
+# Path to your chrome executable
+executable="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
+
 if [ $# -eq 0 ]; then
   target=$default
 else
@@ -18,5 +21,4 @@ else
       ;;
   esac
 fi
-
-/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --app=$target
+$executable --app=$target
